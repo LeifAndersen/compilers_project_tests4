@@ -1,0 +1,13 @@
+(program
+ (= (a) 3)
+ (def (b c) (suite (return (arith c ("+" 3)))))
+ (def (c d) (return (arith d ("+" a))))
+ (def (e a b c) (return (indexed c (called a b))))
+ (def (q b c) (suite (return (indexed b (called c)))))
+ (def (z c) (return (indexed b (called (arith a ("+" c))))))
+ (expr
+  (indexed
+   print
+   (called
+    (indexed e (called z (indexed c (called (indexed b (called 3)))) q))))))
+

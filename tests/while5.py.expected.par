@@ -1,0 +1,15 @@
+(program
+ (= (x) 0)
+ (def
+  (foo)
+  (suite
+   (while
+    (comparison x ("<" 100))
+    (suite
+     ("+=" (x) 3)
+     (cond ((comparison x ("<" 10)) (suite (continue))))
+     (cond ((comparison x (">=" 10)) (suite (break)))))
+    (suite (= (x) 2)))
+   (return)))
+ (expr (indexed print (called x))))
+

@@ -88,9 +88,9 @@ tests/%.cdiff: tests/%.cresult
 	diff $(basename $@).cexpected $(basename $@).cresult >> $@
 
 testlir: pylex pyparse pytrans pydesugar
-	for i in tests/*.py; \
+	for i in tests/*.py.expected.hir; \
 	do printf "%s\n" "Testing LIR: $$i"; \
-	./pylex < $$i | ./pyparse | ./pysimplify | ./pytrans | ./pydesugar > $$i.out.lir; \
+	./pydesugar < $$i > $$i.out.lir; \
 	cat lir-header.rkt $$i.expected.lir > $$i.expected.lrkt | \
 	cat lir-header.rkt $$i.out.lir > $$i.out.lrkt; \
 	racket $$i.expected.lrkt > $$i.expected.lresult; \
@@ -99,9 +99,9 @@ testlir: pylex pyparse pytrans pydesugar
 	done
 
 test: answers pylex pyparse pytrans pydesugar pycps
-	for i in tests/*.py; \
+	for i in tests/*.py.expected.hir; \
 	do printf "%s\n" "Testing CPS: $$i"; \
-	./pylex < $$i | ./pyparse | ./pysimplify | ./pytrans | ./pydesugar | ./pycps > $$i.out.cps; \
+	./pydesugar < $$i ./pycps > $$i.out.cps; \
 	cat cps-header.rkt $$i.expected.cps > $$i.expected.crkt | \
 	cat cps-header.rkt $$i.out.cps > $$i.out.crkt; \
 	racket $$i.expected.crkt > $$i.expected.cresult; \
@@ -111,11 +111,17 @@ test: answers pylex pyparse pytrans pydesugar pycps
 
 answers:
 	for i in tests/*.py; \
-	do if [ ! -f $$i.expected.lir ] || [ ! -f $$i.expected.cps ]; then \
+	do if [ ! -f $$i.expected.lex ] || [ ! -f $$i.expected.par ] || [ ! -f $$i.expected.hir ] || [ ! -f $$i.expected.lir ] || [ ! -f $$i.expected.cps ]; then \
 	printf "%s\n" "Copying $$i"; \
 	scp $$i caprica:temp.py; \
-	ssh caprica "pylex < temp.py | pyparse | pytrans | pydesugar > temp.py.expected.lir  && \
-	             pylex < temp.py | pyparse | pytrans | pydesugar | pycps > temp.py.expected.cps"; \
+	ssh caprica "pylex < temp.py > temp.py.expected.lex && \
+	             pyparse < temp.py.expected.lex > temp.py.expected.par && \
+	             pytrans < temp.py.expected.par > temp.py.expected.hir && \
+	             pydesugar < temp.py.expected.hir > temp.py.expected.lir && \
+	             pycps < temp.py.expected.lir > temp.py.expected.cps;" ; \
+	scp caprica:temp.py.expected.lex $$i.expected.lex; \
+	scp caprica:temp.py.expected.par $$i.expected.par; \
+	scp caprica:temp.py.expected.hir $$i.expected.hir; \
 	scp caprica:temp.py.expected.lir $$i.expected.lir; \
 	scp caprica:temp.py.expected.cps $$i.expected.cps; \
 	fi done

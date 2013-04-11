@@ -1,0 +1,7 @@
+(program
+ (try
+  (suite (expr (indexed print (called "try block"))))
+  (((except) (suite (expr (indexed print (called "exception"))))))
+  #f
+  #f))
+

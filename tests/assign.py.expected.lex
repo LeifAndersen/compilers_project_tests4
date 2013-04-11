@@ -1,0 +1,5 @@
+(ID "a")
+(PUNCT "=")
+(LIT 3)
+(NEWLINE)
+(ENDMARKER)

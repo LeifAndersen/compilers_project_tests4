@@ -1,0 +1,208 @@
+(program
+ (define length (void))
+ (define insertionSort (void))
+ (define myarray (void))
+ (define swap (void))
+ (set-global!
+  length
+  (lambda (arr)
+    (call/ec
+     (lambda (return)
+       (let ((len (void)) (i (void)))
+         (set! len 0)
+         (for-each i16 arr (begin (set! i i16) (let () (set! len (+ len 1)))))
+         (return len))))))
+ (set-global!
+  swap
+  (lambda (arr i1 i2)
+    (call/ec
+     (lambda (return)
+       (let ()
+         (let ((b18 arr))
+           (let ((i17 i2))
+             (let ((v19
+                    (let ((e21 b18))
+                      (let ((i20 i17))
+                        (cond
+                         ((py-list? e21) (py-list-ref e21 i20))
+                         ((tuple? e21) (tuple-ref e21 i20))
+                         ((dict? e21) (dict-ref e21 i20))
+                         (else (error "cannot index object")))))))
+               (cond
+                ((tuple? b18)
+                 (tuple-set!
+                  b18
+                  i17
+                  (bitwise-xor
+                   v19
+                   (let ((e23 arr))
+                     (let ((i22 i1))
+                       (cond
+                        ((py-list? e23) (py-list-ref e23 i22))
+                        ((tuple? e23) (tuple-ref e23 i22))
+                        ((dict? e23) (dict-ref e23 i22))
+                        (else (error "cannot index object"))))))))
+                ((py-list? b18)
+                 (py-list-set!
+                  b18
+                  i17
+                  (bitwise-xor
+                   v19
+                   (let ((e25 arr))
+                     (let ((i24 i1))
+                       (cond
+                        ((py-list? e25) (py-list-ref e25 i24))
+                        ((tuple? e25) (tuple-ref e25 i24))
+                        ((dict? e25) (dict-ref e25 i24))
+                        (else (error "cannot index object"))))))))
+                ((dict? b18)
+                 (dict-set!
+                  b18
+                  i17
+                  (bitwise-xor
+                   v19
+                   (let ((e27 arr))
+                     (let ((i26 i1))
+                       (cond
+                        ((py-list? e27) (py-list-ref e27 i26))
+                        ((tuple? e27) (tuple-ref e27 i26))
+                        ((dict? e27) (dict-ref e27 i26))
+                        (else (error "cannot index object"))))))))))))
+         (let ((b29 arr))
+           (let ((i28 i1))
+             (let ((v30
+                    (let ((e32 b29))
+                      (let ((i31 i28))
+                        (cond
+                         ((py-list? e32) (py-list-ref e32 i31))
+                         ((tuple? e32) (tuple-ref e32 i31))
+                         ((dict? e32) (dict-ref e32 i31))
+                         (else (error "cannot index object")))))))
+               (cond
+                ((tuple? b29)
+                 (tuple-set!
+                  b29
+                  i28
+                  (bitwise-xor
+                   v30
+                   (let ((e34 arr))
+                     (let ((i33 i2))
+                       (cond
+                        ((py-list? e34) (py-list-ref e34 i33))
+                        ((tuple? e34) (tuple-ref e34 i33))
+                        ((dict? e34) (dict-ref e34 i33))
+                        (else (error "cannot index object"))))))))
+                ((py-list? b29)
+                 (py-list-set!
+                  b29
+                  i28
+                  (bitwise-xor
+                   v30
+                   (let ((e36 arr))
+                     (let ((i35 i2))
+                       (cond
+                        ((py-list? e36) (py-list-ref e36 i35))
+                        ((tuple? e36) (tuple-ref e36 i35))
+                        ((dict? e36) (dict-ref e36 i35))
+                        (else (error "cannot index object"))))))))
+                ((dict? b29)
+                 (dict-set!
+                  b29
+                  i28
+                  (bitwise-xor
+                   v30
+                   (let ((e38 arr))
+                     (let ((i37 i2))
+                       (cond
+                        ((py-list? e38) (py-list-ref e38 i37))
+                        ((tuple? e38) (tuple-ref e38 i37))
+                        ((dict? e38) (dict-ref e38 i37))
+                        (else (error "cannot index object"))))))))))))
+         (let ((b40 arr))
+           (let ((i39 i2))
+             (let ((v41
+                    (let ((e43 b40))
+                      (let ((i42 i39))
+                        (cond
+                         ((py-list? e43) (py-list-ref e43 i42))
+                         ((tuple? e43) (tuple-ref e43 i42))
+                         ((dict? e43) (dict-ref e43 i42))
+                         (else (error "cannot index object")))))))
+               (cond
+                ((tuple? b40)
+                 (tuple-set!
+                  b40
+                  i39
+                  (bitwise-xor
+                   v41
+                   (let ((e45 arr))
+                     (let ((i44 i1))
+                       (cond
+                        ((py-list? e45) (py-list-ref e45 i44))
+                        ((tuple? e45) (tuple-ref e45 i44))
+                        ((dict? e45) (dict-ref e45 i44))
+                        (else (error "cannot index object"))))))))
+                ((py-list? b40)
+                 (py-list-set!
+                  b40
+                  i39
+                  (bitwise-xor
+                   v41
+                   (let ((e47 arr))
+                     (let ((i46 i1))
+                       (cond
+                        ((py-list? e47) (py-list-ref e47 i46))
+                        ((tuple? e47) (tuple-ref e47 i46))
+                        ((dict? e47) (dict-ref e47 i46))
+                        (else (error "cannot index object"))))))))
+                ((dict? b40)
+                 (dict-set!
+                  b40
+                  i39
+                  (bitwise-xor
+                   v41
+                   (let ((e49 arr))
+                     (let ((i48 i1))
+                       (cond
+                        ((py-list? e49) (py-list-ref e49 i48))
+                        ((tuple? e49) (tuple-ref e49 i48))
+                        ((dict? e49) (dict-ref e49 i48))
+                        (else (error "cannot index object")))))))))))))))))
+ (set-global!
+  insertionSort
+  (lambda (arr)
+    (call/ec
+     (lambda (return)
+       (let ((k (void)) (i (void)) (j (void)))
+         (set! i 1)
+         (while
+          (< i ((get-global length) arr))
+          (let ()
+            (set! j (- i 1))
+            (set! k i)
+            (while
+             (>= j 0)
+             (let ()
+               (cond
+                ((<
+                  (let ((e51 arr))
+                    (let ((i50 k))
+                      (cond
+                       ((py-list? e51) (py-list-ref e51 i50))
+                       ((tuple? e51) (tuple-ref e51 i50))
+                       ((dict? e51) (dict-ref e51 i50))
+                       (else (error "cannot index object")))))
+                  (let ((e53 arr))
+                    (let ((i52 j))
+                      (cond
+                       ((py-list? e53) (py-list-ref e53 i52))
+                       ((tuple? e53) (tuple-ref e53 i52))
+                       ((dict? e53) (dict-ref e53 i52))
+                       (else (error "cannot index object"))))))
+                 (let () ((get-global swap) arr k j))))
+               (set! k j)
+               (set! j (- j 1))))
+            (set! i (+ i 1)))))))))
+ (set-global! myarray (py-list* 83 57 3 70 42 27 15 97 88 42))
+ ((get-global insertionSort) (get-global myarray))
+ (py-print (get-global myarray)))

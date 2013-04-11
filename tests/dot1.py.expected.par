@@ -1,0 +1,6 @@
+(program
+ (expr (indexed print (called (indexed x (dot mf)) (indexed x (dot ef)))))
+ (expr (indexed print (called (indexed x (dot mf) (dot ex)))))
+ (= (y) (indexed x (dot mf)))
+ (= ((indexed x (dot mf))) 5))
+

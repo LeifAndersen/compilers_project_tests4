@@ -1,0 +1,5 @@
+(program
+ (= (a) (dict (1 2) (3 4)))
+ (expr (indexed print (called (indexed a (subscript 1)))))
+ (expr (indexed print (called (indexed a (subscript 3))))))
+

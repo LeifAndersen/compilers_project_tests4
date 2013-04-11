@@ -1,0 +1,10 @@
+(program
+ (for
+  i
+  (list 1 2 4 5)
+  (suite
+   (for
+    j
+    (list 10 21 541)
+    (suite (expr (indexed print (called (arith i ("+" j))))))))))
+

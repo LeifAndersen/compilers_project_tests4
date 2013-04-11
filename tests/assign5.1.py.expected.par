@@ -1,0 +1,2 @@
+(program (= ((indexed b (subscript 42)) d) (tuple 7 8)))
+

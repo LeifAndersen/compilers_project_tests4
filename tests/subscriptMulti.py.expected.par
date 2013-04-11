@@ -1,0 +1,4 @@
+(program
+ (= (a) (list (list 1 2) (list 3 4 5) (list 6 7)))
+ (expr (indexed a (subscript 1) (subscript 2))))
+

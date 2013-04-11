@@ -1,0 +1,94 @@
+(program
+ (= (a) "a")
+ (=
+  (b)
+  (list
+   (dict
+    ("a"
+     (list
+      (dict
+       ("b"
+        (list
+         (dict
+          ("c" (list (dict ("d" (list (dict ("e" (list 1 2 3 4)))))))))))))))))
+ (= (c) "old c")
+ (= (d) (dict ("a" (dict ("b" (list 1))))))
+ (def
+  (func a)
+  (suite
+   (global b c d)
+   (= (e) b)
+   (expr
+    (indexed
+     print
+     (called
+      (indexed
+       e
+       (subscript 0)
+       (subscript "a")
+       (subscript 0)
+       (subscript "b")
+       (subscript 0)
+       (subscript "c")
+       (subscript 0)
+       (subscript "d")
+       (subscript 0)
+       (subscript "e")
+       (subscript 1)))))
+   (=
+    (a
+     (indexed
+      b
+      (subscript 0)
+      (subscript "a")
+      (subscript 0)
+      (subscript "b")
+      (subscript 0)
+      (subscript "c")
+      (subscript 0)
+      (subscript "d")
+      (subscript 0)
+      (subscript "e")
+      (subscript 1))
+     c
+     (indexed d (subscript "a") (subscript "b") (subscript 0))
+     c
+     e)
+    (tuple
+     "A"
+     "b"
+     "c"
+     (arith
+      (term 3 ("*" 100))
+      ("+" (indexed d (subscript "a") (subscript "b") (subscript 0))))
+     "new c"
+     1))
+   (expr (indexed print (called a)))
+   (expr
+    (indexed
+     print
+     (called
+      (indexed
+       b
+       (subscript 0)
+       (subscript "a")
+       (subscript 0)
+       (subscript "b")
+       (subscript 0)
+       (subscript "c")
+       (subscript 0)
+       (subscript "d")
+       (subscript 0)
+       (subscript "e")
+       (subscript 1)))))
+   (expr (indexed print (called c)))
+   (expr (indexed print (called e)))
+   (return a)))
+ (= (result) (indexed func (called a)))
+ (expr (indexed print (called a)))
+ (expr
+  (indexed
+   print
+   (called (indexed d (subscript "a") (subscript "b") (subscript 0)))))
+ (expr (indexed print (called result))))
+

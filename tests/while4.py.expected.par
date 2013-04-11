@@ -1,0 +1,5 @@
+(program
+ (= (x) 0)
+ (while (comparison x ("<" 3)) (suite ("+=" (x) 3)) (suite (= (x) 2)))
+ (expr (indexed print (called x))))
+

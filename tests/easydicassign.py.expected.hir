@@ -1,0 +1,9 @@
+(program
+ (define a (void))
+ (set-global! a (dict (1 2)))
+ (let ((b17 (get-global a)))
+   (let ((i16 1))
+     (cond
+      ((tuple? b17) (tuple-set! b17 i16 3))
+      ((py-list? b17) (py-list-set! b17 i16 3))
+      ((dict? b17) (dict-set! b17 i16 3))))))

@@ -1,0 +1,19 @@
+(program
+ (define foo (void))
+ (define x (void))
+ (set-global! x 0)
+ (set-global!
+  foo
+  (lambda ()
+    (call/ec
+     (lambda (return)
+       (let ((x (void)))
+         (while
+          (< x 100)
+          (let ()
+            (set! x (+ x 3))
+            (cond ((< x 10) (let () (continue))))
+            (cond ((>= x 10) (let () (break)))))
+          (let () (set! x 2)))
+         (return (void)))))))
+ (py-print (get-global x)))

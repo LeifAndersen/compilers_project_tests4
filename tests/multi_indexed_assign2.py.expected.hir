@@ -1,0 +1,657 @@
+(program
+ (define d (void))
+ (define b (void))
+ (define c (void))
+ (define a (void))
+ (define result (void))
+ (define func (void))
+ (set-global! a "a")
+ (set-global!
+  b
+  (py-list*
+   (dict
+    ("a"
+     (py-list*
+      (dict
+       ("b"
+        (py-list*
+         (dict
+          ("c"
+           (py-list*
+            (dict ("d" (py-list* (dict ("e" (py-list* 1 2 3 4)))))))))))))))))
+ (set-global! c "old c")
+ (set-global! d (dict ("a" (dict ("b" (py-list* 1))))))
+ (set-global!
+  func
+  (lambda (a)
+    (call/ec
+     (lambda (return)
+       (let ((e (void)))
+         (void)
+         (set! e (get-global b))
+         (py-print
+          (let ((e37
+                 (let ((e35
+                        (let ((e33
+                               (let ((e31
+                                      (let ((e29
+                                             (let ((e27
+                                                    (let ((e25
+                                                           (let ((e23
+                                                                  (let ((e21
+                                                                         (let ((e19
+                                                                                (let ((e17
+                                                                                       e))
+                                                                                  (let ((i16
+                                                                                         0))
+                                                                                    (cond
+                                                                                     ((py-list?
+                                                                                       e17)
+                                                                                      (py-list-ref
+                                                                                       e17
+                                                                                       i16))
+                                                                                     ((tuple?
+                                                                                       e17)
+                                                                                      (tuple-ref
+                                                                                       e17
+                                                                                       i16))
+                                                                                     ((dict?
+                                                                                       e17)
+                                                                                      (dict-ref
+                                                                                       e17
+                                                                                       i16))
+                                                                                     (else
+                                                                                      (error
+                                                                                       "cannot index object")))))))
+                                                                           (let ((i18
+                                                                                  "a"))
+                                                                             (cond
+                                                                              ((py-list?
+                                                                                e19)
+                                                                               (py-list-ref
+                                                                                e19
+                                                                                i18))
+                                                                              ((tuple?
+                                                                                e19)
+                                                                               (tuple-ref
+                                                                                e19
+                                                                                i18))
+                                                                              ((dict?
+                                                                                e19)
+                                                                               (dict-ref
+                                                                                e19
+                                                                                i18))
+                                                                              (else
+                                                                               (error
+                                                                                "cannot index object")))))))
+                                                                    (let ((i20
+                                                                           0))
+                                                                      (cond
+                                                                       ((py-list?
+                                                                         e21)
+                                                                        (py-list-ref
+                                                                         e21
+                                                                         i20))
+                                                                       ((tuple?
+                                                                         e21)
+                                                                        (tuple-ref
+                                                                         e21
+                                                                         i20))
+                                                                       ((dict?
+                                                                         e21)
+                                                                        (dict-ref
+                                                                         e21
+                                                                         i20))
+                                                                       (else
+                                                                        (error
+                                                                         "cannot index object")))))))
+                                                             (let ((i22 "b"))
+                                                               (cond
+                                                                ((py-list? e23)
+                                                                 (py-list-ref
+                                                                  e23
+                                                                  i22))
+                                                                ((tuple? e23)
+                                                                 (tuple-ref
+                                                                  e23
+                                                                  i22))
+                                                                ((dict? e23)
+                                                                 (dict-ref
+                                                                  e23
+                                                                  i22))
+                                                                (else
+                                                                 (error
+                                                                  "cannot index object")))))))
+                                                      (let ((i24 0))
+                                                        (cond
+                                                         ((py-list? e25)
+                                                          (py-list-ref
+                                                           e25
+                                                           i24))
+                                                         ((tuple? e25)
+                                                          (tuple-ref e25 i24))
+                                                         ((dict? e25)
+                                                          (dict-ref e25 i24))
+                                                         (else
+                                                          (error
+                                                           "cannot index object")))))))
+                                               (let ((i26 "c"))
+                                                 (cond
+                                                  ((py-list? e27)
+                                                   (py-list-ref e27 i26))
+                                                  ((tuple? e27)
+                                                   (tuple-ref e27 i26))
+                                                  ((dict? e27)
+                                                   (dict-ref e27 i26))
+                                                  (else
+                                                   (error
+                                                    "cannot index object")))))))
+                                        (let ((i28 0))
+                                          (cond
+                                           ((py-list? e29)
+                                            (py-list-ref e29 i28))
+                                           ((tuple? e29) (tuple-ref e29 i28))
+                                           ((dict? e29) (dict-ref e29 i28))
+                                           (else
+                                            (error "cannot index object")))))))
+                                 (let ((i30 "d"))
+                                   (cond
+                                    ((py-list? e31) (py-list-ref e31 i30))
+                                    ((tuple? e31) (tuple-ref e31 i30))
+                                    ((dict? e31) (dict-ref e31 i30))
+                                    (else (error "cannot index object")))))))
+                          (let ((i32 0))
+                            (cond
+                             ((py-list? e33) (py-list-ref e33 i32))
+                             ((tuple? e33) (tuple-ref e33 i32))
+                             ((dict? e33) (dict-ref e33 i32))
+                             (else (error "cannot index object")))))))
+                   (let ((i34 "e"))
+                     (cond
+                      ((py-list? e35) (py-list-ref e35 i34))
+                      ((tuple? e35) (tuple-ref e35 i34))
+                      ((dict? e35) (dict-ref e35 i34))
+                      (else (error "cannot index object")))))))
+            (let ((i36 1))
+              (cond
+               ((py-list? e37) (py-list-ref e37 i36))
+               ((tuple? e37) (tuple-ref e37 i36))
+               ((dict? e37) (dict-ref e37 i36))
+               (else (error "cannot index object"))))))
+         (let ((t38
+                (tuple
+                 "A"
+                 "b"
+                 "c"
+                 (+
+                  (* 3 100)
+                  (let ((e44
+                         (let ((e42
+                                (let ((e40 (get-global d)))
+                                  (let ((i39 "a"))
+                                    (cond
+                                     ((py-list? e40) (py-list-ref e40 i39))
+                                     ((tuple? e40) (tuple-ref e40 i39))
+                                     ((dict? e40) (dict-ref e40 i39))
+                                     (else (error "cannot index object")))))))
+                           (let ((i41 "b"))
+                             (cond
+                              ((py-list? e42) (py-list-ref e42 i41))
+                              ((tuple? e42) (tuple-ref e42 i41))
+                              ((dict? e42) (dict-ref e42 i41))
+                              (else (error "cannot index object")))))))
+                    (let ((i43 0))
+                      (cond
+                       ((py-list? e44) (py-list-ref e44 i43))
+                       ((tuple? e44) (tuple-ref e44 i43))
+                       ((dict? e44) (dict-ref e44 i43))
+                       (else (error "cannot index object"))))))
+                 "new c"
+                 1)))
+           (set! a
+             (let ((e46 t38))
+               (let ((i45 0))
+                 (cond
+                  ((py-list? e46) (py-list-ref e46 i45))
+                  ((tuple? e46) (tuple-ref e46 i45))
+                  ((dict? e46) (dict-ref e46 i45))
+                  (else (error "cannot index object"))))))
+           (let ((b68
+                  (let ((e66
+                         (let ((e64
+                                (let ((e62
+                                       (let ((e60
+                                              (let ((e58
+                                                     (let ((e56
+                                                            (let ((e54
+                                                                   (let ((e52
+                                                                          (let ((e50
+                                                                                 (let ((e48
+                                                                                        (get-global
+                                                                                         b)))
+                                                                                   (let ((i47
+                                                                                          0))
+                                                                                     (cond
+                                                                                      ((py-list?
+                                                                                        e48)
+                                                                                       (py-list-ref
+                                                                                        e48
+                                                                                        i47))
+                                                                                      ((tuple?
+                                                                                        e48)
+                                                                                       (tuple-ref
+                                                                                        e48
+                                                                                        i47))
+                                                                                      ((dict?
+                                                                                        e48)
+                                                                                       (dict-ref
+                                                                                        e48
+                                                                                        i47))
+                                                                                      (else
+                                                                                       (error
+                                                                                        "cannot index object")))))))
+                                                                            (let ((i49
+                                                                                   "a"))
+                                                                              (cond
+                                                                               ((py-list?
+                                                                                 e50)
+                                                                                (py-list-ref
+                                                                                 e50
+                                                                                 i49))
+                                                                               ((tuple?
+                                                                                 e50)
+                                                                                (tuple-ref
+                                                                                 e50
+                                                                                 i49))
+                                                                               ((dict?
+                                                                                 e50)
+                                                                                (dict-ref
+                                                                                 e50
+                                                                                 i49))
+                                                                               (else
+                                                                                (error
+                                                                                 "cannot index object")))))))
+                                                                     (let ((i51
+                                                                            0))
+                                                                       (cond
+                                                                        ((py-list?
+                                                                          e52)
+                                                                         (py-list-ref
+                                                                          e52
+                                                                          i51))
+                                                                        ((tuple?
+                                                                          e52)
+                                                                         (tuple-ref
+                                                                          e52
+                                                                          i51))
+                                                                        ((dict?
+                                                                          e52)
+                                                                         (dict-ref
+                                                                          e52
+                                                                          i51))
+                                                                        (else
+                                                                         (error
+                                                                          "cannot index object")))))))
+                                                              (let ((i53 "b"))
+                                                                (cond
+                                                                 ((py-list?
+                                                                   e54)
+                                                                  (py-list-ref
+                                                                   e54
+                                                                   i53))
+                                                                 ((tuple? e54)
+                                                                  (tuple-ref
+                                                                   e54
+                                                                   i53))
+                                                                 ((dict? e54)
+                                                                  (dict-ref
+                                                                   e54
+                                                                   i53))
+                                                                 (else
+                                                                  (error
+                                                                   "cannot index object")))))))
+                                                       (let ((i55 0))
+                                                         (cond
+                                                          ((py-list? e56)
+                                                           (py-list-ref
+                                                            e56
+                                                            i55))
+                                                          ((tuple? e56)
+                                                           (tuple-ref e56 i55))
+                                                          ((dict? e56)
+                                                           (dict-ref e56 i55))
+                                                          (else
+                                                           (error
+                                                            "cannot index object")))))))
+                                                (let ((i57 "c"))
+                                                  (cond
+                                                   ((py-list? e58)
+                                                    (py-list-ref e58 i57))
+                                                   ((tuple? e58)
+                                                    (tuple-ref e58 i57))
+                                                   ((dict? e58)
+                                                    (dict-ref e58 i57))
+                                                   (else
+                                                    (error
+                                                     "cannot index object")))))))
+                                         (let ((i59 0))
+                                           (cond
+                                            ((py-list? e60)
+                                             (py-list-ref e60 i59))
+                                            ((tuple? e60) (tuple-ref e60 i59))
+                                            ((dict? e60) (dict-ref e60 i59))
+                                            (else
+                                             (error
+                                              "cannot index object")))))))
+                                  (let ((i61 "d"))
+                                    (cond
+                                     ((py-list? e62) (py-list-ref e62 i61))
+                                     ((tuple? e62) (tuple-ref e62 i61))
+                                     ((dict? e62) (dict-ref e62 i61))
+                                     (else (error "cannot index object")))))))
+                           (let ((i63 0))
+                             (cond
+                              ((py-list? e64) (py-list-ref e64 i63))
+                              ((tuple? e64) (tuple-ref e64 i63))
+                              ((dict? e64) (dict-ref e64 i63))
+                              (else (error "cannot index object")))))))
+                    (let ((i65 "e"))
+                      (cond
+                       ((py-list? e66) (py-list-ref e66 i65))
+                       ((tuple? e66) (tuple-ref e66 i65))
+                       ((dict? e66) (dict-ref e66 i65))
+                       (else (error "cannot index object")))))))
+             (let ((i67 1))
+               (cond
+                ((tuple? b68)
+                 (tuple-set!
+                  b68
+                  i67
+                  (let ((e70 t38))
+                    (let ((i69 1))
+                      (cond
+                       ((py-list? e70) (py-list-ref e70 i69))
+                       ((tuple? e70) (tuple-ref e70 i69))
+                       ((dict? e70) (dict-ref e70 i69))
+                       (else (error "cannot index object")))))))
+                ((py-list? b68)
+                 (py-list-set!
+                  b68
+                  i67
+                  (let ((e72 t38))
+                    (let ((i71 1))
+                      (cond
+                       ((py-list? e72) (py-list-ref e72 i71))
+                       ((tuple? e72) (tuple-ref e72 i71))
+                       ((dict? e72) (dict-ref e72 i71))
+                       (else (error "cannot index object")))))))
+                ((dict? b68)
+                 (dict-set!
+                  b68
+                  i67
+                  (let ((e74 t38))
+                    (let ((i73 1))
+                      (cond
+                       ((py-list? e74) (py-list-ref e74 i73))
+                       ((tuple? e74) (tuple-ref e74 i73))
+                       ((dict? e74) (dict-ref e74 i73))
+                       (else (error "cannot index object"))))))))))
+           (set-global!
+            c
+            (let ((e76 t38))
+              (let ((i75 2))
+                (cond
+                 ((py-list? e76) (py-list-ref e76 i75))
+                 ((tuple? e76) (tuple-ref e76 i75))
+                 ((dict? e76) (dict-ref e76 i75))
+                 (else (error "cannot index object"))))))
+           (let ((b82
+                  (let ((e80
+                         (let ((e78 (get-global d)))
+                           (let ((i77 "a"))
+                             (cond
+                              ((py-list? e78) (py-list-ref e78 i77))
+                              ((tuple? e78) (tuple-ref e78 i77))
+                              ((dict? e78) (dict-ref e78 i77))
+                              (else (error "cannot index object")))))))
+                    (let ((i79 "b"))
+                      (cond
+                       ((py-list? e80) (py-list-ref e80 i79))
+                       ((tuple? e80) (tuple-ref e80 i79))
+                       ((dict? e80) (dict-ref e80 i79))
+                       (else (error "cannot index object")))))))
+             (let ((i81 0))
+               (cond
+                ((tuple? b82)
+                 (tuple-set!
+                  b82
+                  i81
+                  (let ((e84 t38))
+                    (let ((i83 3))
+                      (cond
+                       ((py-list? e84) (py-list-ref e84 i83))
+                       ((tuple? e84) (tuple-ref e84 i83))
+                       ((dict? e84) (dict-ref e84 i83))
+                       (else (error "cannot index object")))))))
+                ((py-list? b82)
+                 (py-list-set!
+                  b82
+                  i81
+                  (let ((e86 t38))
+                    (let ((i85 3))
+                      (cond
+                       ((py-list? e86) (py-list-ref e86 i85))
+                       ((tuple? e86) (tuple-ref e86 i85))
+                       ((dict? e86) (dict-ref e86 i85))
+                       (else (error "cannot index object")))))))
+                ((dict? b82)
+                 (dict-set!
+                  b82
+                  i81
+                  (let ((e88 t38))
+                    (let ((i87 3))
+                      (cond
+                       ((py-list? e88) (py-list-ref e88 i87))
+                       ((tuple? e88) (tuple-ref e88 i87))
+                       ((dict? e88) (dict-ref e88 i87))
+                       (else (error "cannot index object"))))))))))
+           (set-global!
+            c
+            (let ((e90 t38))
+              (let ((i89 4))
+                (cond
+                 ((py-list? e90) (py-list-ref e90 i89))
+                 ((tuple? e90) (tuple-ref e90 i89))
+                 ((dict? e90) (dict-ref e90 i89))
+                 (else (error "cannot index object"))))))
+           (set! e
+             (let ((e92 t38))
+               (let ((i91 5))
+                 (cond
+                  ((py-list? e92) (py-list-ref e92 i91))
+                  ((tuple? e92) (tuple-ref e92 i91))
+                  ((dict? e92) (dict-ref e92 i91))
+                  (else (error "cannot index object")))))))
+         (py-print a)
+         (py-print
+          (let ((e114
+                 (let ((e112
+                        (let ((e110
+                               (let ((e108
+                                      (let ((e106
+                                             (let ((e104
+                                                    (let ((e102
+                                                           (let ((e100
+                                                                  (let ((e98
+                                                                         (let ((e96
+                                                                                (let ((e94
+                                                                                       (get-global
+                                                                                        b)))
+                                                                                  (let ((i93
+                                                                                         0))
+                                                                                    (cond
+                                                                                     ((py-list?
+                                                                                       e94)
+                                                                                      (py-list-ref
+                                                                                       e94
+                                                                                       i93))
+                                                                                     ((tuple?
+                                                                                       e94)
+                                                                                      (tuple-ref
+                                                                                       e94
+                                                                                       i93))
+                                                                                     ((dict?
+                                                                                       e94)
+                                                                                      (dict-ref
+                                                                                       e94
+                                                                                       i93))
+                                                                                     (else
+                                                                                      (error
+                                                                                       "cannot index object")))))))
+                                                                           (let ((i95
+                                                                                  "a"))
+                                                                             (cond
+                                                                              ((py-list?
+                                                                                e96)
+                                                                               (py-list-ref
+                                                                                e96
+                                                                                i95))
+                                                                              ((tuple?
+                                                                                e96)
+                                                                               (tuple-ref
+                                                                                e96
+                                                                                i95))
+                                                                              ((dict?
+                                                                                e96)
+                                                                               (dict-ref
+                                                                                e96
+                                                                                i95))
+                                                                              (else
+                                                                               (error
+                                                                                "cannot index object")))))))
+                                                                    (let ((i97
+                                                                           0))
+                                                                      (cond
+                                                                       ((py-list?
+                                                                         e98)
+                                                                        (py-list-ref
+                                                                         e98
+                                                                         i97))
+                                                                       ((tuple?
+                                                                         e98)
+                                                                        (tuple-ref
+                                                                         e98
+                                                                         i97))
+                                                                       ((dict?
+                                                                         e98)
+                                                                        (dict-ref
+                                                                         e98
+                                                                         i97))
+                                                                       (else
+                                                                        (error
+                                                                         "cannot index object")))))))
+                                                             (let ((i99 "b"))
+                                                               (cond
+                                                                ((py-list?
+                                                                  e100)
+                                                                 (py-list-ref
+                                                                  e100
+                                                                  i99))
+                                                                ((tuple? e100)
+                                                                 (tuple-ref
+                                                                  e100
+                                                                  i99))
+                                                                ((dict? e100)
+                                                                 (dict-ref
+                                                                  e100
+                                                                  i99))
+                                                                (else
+                                                                 (error
+                                                                  "cannot index object")))))))
+                                                      (let ((i101 0))
+                                                        (cond
+                                                         ((py-list? e102)
+                                                          (py-list-ref
+                                                           e102
+                                                           i101))
+                                                         ((tuple? e102)
+                                                          (tuple-ref
+                                                           e102
+                                                           i101))
+                                                         ((dict? e102)
+                                                          (dict-ref e102 i101))
+                                                         (else
+                                                          (error
+                                                           "cannot index object")))))))
+                                               (let ((i103 "c"))
+                                                 (cond
+                                                  ((py-list? e104)
+                                                   (py-list-ref e104 i103))
+                                                  ((tuple? e104)
+                                                   (tuple-ref e104 i103))
+                                                  ((dict? e104)
+                                                   (dict-ref e104 i103))
+                                                  (else
+                                                   (error
+                                                    "cannot index object")))))))
+                                        (let ((i105 0))
+                                          (cond
+                                           ((py-list? e106)
+                                            (py-list-ref e106 i105))
+                                           ((tuple? e106)
+                                            (tuple-ref e106 i105))
+                                           ((dict? e106) (dict-ref e106 i105))
+                                           (else
+                                            (error "cannot index object")))))))
+                                 (let ((i107 "d"))
+                                   (cond
+                                    ((py-list? e108) (py-list-ref e108 i107))
+                                    ((tuple? e108) (tuple-ref e108 i107))
+                                    ((dict? e108) (dict-ref e108 i107))
+                                    (else (error "cannot index object")))))))
+                          (let ((i109 0))
+                            (cond
+                             ((py-list? e110) (py-list-ref e110 i109))
+                             ((tuple? e110) (tuple-ref e110 i109))
+                             ((dict? e110) (dict-ref e110 i109))
+                             (else (error "cannot index object")))))))
+                   (let ((i111 "e"))
+                     (cond
+                      ((py-list? e112) (py-list-ref e112 i111))
+                      ((tuple? e112) (tuple-ref e112 i111))
+                      ((dict? e112) (dict-ref e112 i111))
+                      (else (error "cannot index object")))))))
+            (let ((i113 1))
+              (cond
+               ((py-list? e114) (py-list-ref e114 i113))
+               ((tuple? e114) (tuple-ref e114 i113))
+               ((dict? e114) (dict-ref e114 i113))
+               (else (error "cannot index object"))))))
+         (py-print (get-global c))
+         (py-print e)
+         (return a))))))
+ (set-global! result ((get-global func) (get-global a)))
+ (py-print (get-global a))
+ (py-print
+  (let ((e120
+         (let ((e118
+                (let ((e116 (get-global d)))
+                  (let ((i115 "a"))
+                    (cond
+                     ((py-list? e116) (py-list-ref e116 i115))
+                     ((tuple? e116) (tuple-ref e116 i115))
+                     ((dict? e116) (dict-ref e116 i115))
+                     (else (error "cannot index object")))))))
+           (let ((i117 "b"))
+             (cond
+              ((py-list? e118) (py-list-ref e118 i117))
+              ((tuple? e118) (tuple-ref e118 i117))
+              ((dict? e118) (dict-ref e118 i117))
+              (else (error "cannot index object")))))))
+    (let ((i119 0))
+      (cond
+       ((py-list? e120) (py-list-ref e120 i119))
+       ((tuple? e120) (tuple-ref e120 i119))
+       ((dict? e120) (dict-ref e120 i119))
+       (else (error "cannot index object"))))))
+ (py-print (get-global result)))

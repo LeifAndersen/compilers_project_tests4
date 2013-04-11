@@ -1,0 +1,2 @@
+(program (expr (indexed print (called (bitwise-xor 1 3)))))
+

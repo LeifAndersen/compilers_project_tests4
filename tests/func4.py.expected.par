@@ -1,0 +1,30 @@
+(program
+ (= (a) 3)
+ (def
+  (b)
+  (suite
+   (global a)
+   (= (a) 2)
+   (def
+    (b)
+    (suite
+     (= (a) 4)
+     (def
+      (b)
+      (suite
+       (nonlocal a)
+       (= (a) 5)
+       (def (b) (suite (= (a) 6) (expr (indexed print (called a)))))
+       (expr (indexed print (called a)))
+       (expr (indexed b (called)))
+       (expr (indexed print (called a)))))
+     (expr (indexed print (called a)))
+     (expr (indexed b (called)))
+     (expr (indexed print (called a)))))
+   (expr (indexed print (called a)))
+   (expr (indexed b (called)))
+   (expr (indexed print (called a)))))
+ (expr (indexed print (called a)))
+ (expr (indexed b (called)))
+ (expr (indexed print (called a))))
+

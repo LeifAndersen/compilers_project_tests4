@@ -1,0 +1,4 @@
+(program
+ (expr (indexed print (called (indexed x (dot mf)))))
+ (expr (indexed x (dot ef))))
+

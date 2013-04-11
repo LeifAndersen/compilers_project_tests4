@@ -1,0 +1,17 @@
+(program
+ (= (x) (list (list 1) (list 2) (list 3) (list 4 5 6)))
+ (for i x (suite (for j i (suite (expr (indexed print (called j)))))))
+ (= (i) 0)
+ (for
+  k
+  x
+  (suite
+   (= (j) 0)
+   (for
+    m
+    k
+    (suite
+     (expr (indexed print (called (indexed x (subscript i) (subscript j)))))
+     ("+=" (j) 1)))
+   (= (i) (arith i ("+" 1))))))
+

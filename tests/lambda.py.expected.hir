@@ -1,0 +1,7 @@
+(program
+ (define f0 (void))
+ (define f1 (void))
+ (define f2 (void))
+ (set-global! f0 (lambda () 4))
+ (set-global! f1 (lambda (a) (+ a 2)))
+ (set-global! f2 (lambda (a b) (+ a b))))

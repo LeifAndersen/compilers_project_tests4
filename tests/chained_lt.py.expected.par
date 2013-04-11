@@ -1,0 +1,8 @@
+(program
+ (= (x) 0)
+ (cond
+  ((comparison x ("<" 1) ("<" 2) ("<" 3) ("<" 4) ("<" 5))
+   (suite (expr (indexed print (called "Good!")))))
+  ((comparison x ("<" 6)) (suite (expr (indexed print (called "WTF?")))))
+  (else (suite (expr (indexed print (called "Bad!")))))))
+

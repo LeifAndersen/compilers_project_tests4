@@ -1,0 +1,9 @@
+(program
+ (= (x) (dict ("bob" "bill") ("sall" "sue")))
+ (for
+  i
+  x
+  (suite
+   (expr (indexed print (called i)))
+   (expr (indexed print (called (indexed x (subscript i))))))))
+

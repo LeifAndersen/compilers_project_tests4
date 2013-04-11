@@ -1,0 +1,8 @@
+(program
+ (try
+  (suite (expr (indexed print (called "some code"))) (raise Exception))
+  (((except)
+    (suite (expr (indexed print (called "exception handling code"))))))
+  #f
+  #f))
+

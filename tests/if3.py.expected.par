@@ -1,0 +1,5 @@
+(program
+ (cond (True (expr (indexed print (called "bob")))))
+ (cond (False (expr (indexed print (called 5)))))
+ (cond ((comparison 3 ("<" 343151)) (expr (indexed print (called "why?"))))))
+

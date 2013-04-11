@@ -1,0 +1,2 @@
+(program (expr (arith 5 ("+" (term 3 ("*" 8))))))
+

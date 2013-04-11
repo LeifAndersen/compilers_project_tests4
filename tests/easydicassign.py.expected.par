@@ -1,0 +1,2 @@
+(program (= (a) (dict (1 2))) (= ((indexed a (subscript 1))) 3))
+

@@ -1,0 +1,2 @@
+(program (begin (expr (shift 3 (">>" 2))) (expr (shift 1 ("<<" 2)))))
+

@@ -1,0 +1,6 @@
+(program
+ (cond (False (suite (pass))) (else (suite (= (x) 3))))
+ (expr (indexed print (called x)))
+ (cond (True (suite (pass))) (else (suite (= (x) 10))))
+ (expr (indexed print (called x))))
+

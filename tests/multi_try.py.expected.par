@@ -1,0 +1,17 @@
+(program
+ (try
+  (suite
+   (try
+    (suite
+     (try
+      (suite (expr (indexed print (called "Begin..."))) (raise Exception))
+      (((except) (suite (raise Exception))))
+      #f
+      #f))
+    (((except) (suite (raise Exception))))
+    #f
+    #f))
+  (((except) (suite (expr (indexed print (called "Good!"))))))
+  #f
+  #f))
+

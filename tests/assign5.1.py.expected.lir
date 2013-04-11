@@ -1,0 +1,82 @@
+(program
+ (define break (void))
+ (define return (void))
+ (define continue (void))
+ (define $current-handler (void))
+ (define g$d (void))
+ (begin
+   ((lambda (t16)
+      (begin
+        ((lambda (b18)
+           (begin
+             ((lambda (i17)
+                (begin
+                  (if (tuple? b18)
+                    (tuple-set!
+                     b18
+                     i17
+                     ((lambda (e20)
+                        (begin
+                          ((lambda (i19)
+                             (begin
+                               (if (py-list? e20)
+                                 (py-list-ref e20 i19)
+                                 (if (tuple? e20)
+                                   (tuple-ref e20 i19)
+                                   (if (dict? e20)
+                                     (dict-ref e20 i19)
+                                     (error "cannot index object"))))))
+                           0)))
+                      t16))
+                    (if (py-list? b18)
+                      (py-list-set!
+                       b18
+                       i17
+                       ((lambda (e22)
+                          (begin
+                            ((lambda (i21)
+                               (begin
+                                 (if (py-list? e22)
+                                   (py-list-ref e22 i21)
+                                   (if (tuple? e22)
+                                     (tuple-ref e22 i21)
+                                     (if (dict? e22)
+                                       (dict-ref e22 i21)
+                                       (error "cannot index object"))))))
+                             0)))
+                        t16))
+                      (if (dict? b18)
+                        (dict-set!
+                         b18
+                         i17
+                         ((lambda (e24)
+                            (begin
+                              ((lambda (i23)
+                                 (begin
+                                   (if (py-list? e24)
+                                     (py-list-ref e24 i23)
+                                     (if (tuple? e24)
+                                       (tuple-ref e24 i23)
+                                       (if (dict? e24)
+                                         (dict-ref e24 i23)
+                                         (error "cannot index object"))))))
+                               0)))
+                          t16))
+                        (void))))))
+              42)))
+         g$b)
+        (set! g$d
+          ((lambda (e26)
+             (begin
+               ((lambda (i25)
+                  (begin
+                    (if (py-list? e26)
+                      (py-list-ref e26 i25)
+                      (if (tuple? e26)
+                        (tuple-ref e26 i25)
+                        (if (dict? e26)
+                          (dict-ref e26 i25)
+                          (error "cannot index object"))))))
+                1)))
+           t16))))
+    (tuple 7 8))))

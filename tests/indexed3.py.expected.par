@@ -1,0 +1,4 @@
+(program
+ (expr
+  (indexed print (called (indexed list (called (list 1)) (subscript 0))))))
+

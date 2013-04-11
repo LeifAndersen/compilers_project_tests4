@@ -1,0 +1,7 @@
+(program
+ (= (a b c d) (tuple 1 2 3 4))
+ (expr (indexed print (called a)))
+ (expr (indexed print (called b)))
+ (expr (indexed print (called c)))
+ (expr (indexed print (called d))))
+

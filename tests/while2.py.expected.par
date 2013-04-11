@@ -1,0 +1,6 @@
+(program
+ (= (i) 0)
+ (while (comparison i (">" 150)) (suite (pass)))
+ (while (comparison i ("<" 150)) (suite ("+=" (i) 1)))
+ (expr (indexed print (called i))))
+

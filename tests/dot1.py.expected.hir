@@ -1,0 +1,6 @@
+(program
+ (define y (void))
+ (py-print (get-field (get-global x) mf) (get-field (get-global x) ef))
+ (py-print (get-field (get-field (get-global x) mf) ex))
+ (set-global! y (get-field (get-global x) mf))
+ (set-field! (get-global x) mf 5))

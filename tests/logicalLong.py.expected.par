@@ -1,0 +1,4 @@
+(program
+ (= (a b c d w) (tuple 1 2 3 4 5))
+ (expr (or (and a b) 3 (and (not b) (or d c (and b (or c d) w))))))
+

@@ -1,0 +1,8 @@
+(program
+ (for
+  i
+  (list 1 2 3 4 5)
+  (suite (expr (indexed print (called i))))
+  (suite (expr (indexed print (called i))) (expr (indexed print (called 5)))))
+ (expr (indexed print (called i))))
+

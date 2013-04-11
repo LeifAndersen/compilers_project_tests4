@@ -1,0 +1,2 @@
+(program (for i (list 1 2 3 4 5) (suite (expr (indexed print (called i))))))
+

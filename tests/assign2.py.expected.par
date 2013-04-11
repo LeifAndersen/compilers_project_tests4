@@ -1,0 +1,5 @@
+(program
+ (= (a b) (tuple 1 2))
+ (expr (indexed print (called a)))
+ (expr (indexed print (called b))))
+

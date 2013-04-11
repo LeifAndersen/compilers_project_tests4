@@ -1,0 +1,17 @@
+(program
+ (for
+  x
+  (list 1)
+  (suite
+   (for
+    y
+    (list 2)
+    (suite
+     (for
+      z
+      (list 3)
+      (suite
+       (expr (indexed print (called x)))
+       (expr (indexed print (called y)))
+       (expr (indexed print (called z))))))))))
+

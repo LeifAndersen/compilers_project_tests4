@@ -1,0 +1,8 @@
+(program
+ (= (x) 3.0)
+ (= (y) 2)
+ (assert (comparison x (">" y)))
+ (assert (tuple (comparison x (">" 2)) (comparison y ("==" 2))))
+ (assert (comparison x (">" 2)) "x must be greater than two!")
+ (expr (indexed print (called (comparison x (">" y))))))
+

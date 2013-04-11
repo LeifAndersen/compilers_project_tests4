@@ -1,0 +1,9 @@
+(program
+ (define y (void))
+ (define x (void))
+ (set-global! x 3.0)
+ (set-global! y 2)
+ (assert (> (get-global x) (get-global y)))
+ (assert (tuple (> (get-global x) 2) (equal? (get-global y) 2)))
+ (assert (> (get-global x) 2) "x must be greater than two!")
+ (py-print (> (get-global x) (get-global y))))

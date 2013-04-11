@@ -1,0 +1,9 @@
+(program
+ (= (a) (list 1 2))
+ (= (b) (list 3 4))
+ (= (i) 0)
+ (= (j) 1)
+ (= ((indexed a (subscript i))) (indexed b (subscript j)))
+ (expr (indexed print (called a)))
+ (expr (indexed print (called b))))
+

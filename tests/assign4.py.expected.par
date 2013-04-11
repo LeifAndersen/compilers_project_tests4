@@ -1,0 +1,6 @@
+(program
+ (= (a b c) (list 1 2 (list 3 4)))
+ (expr (indexed print (called a)))
+ (expr (indexed print (called b)))
+ (expr (indexed print (called c))))
+

@@ -1,0 +1,11 @@
+(program
+ (define break (void))
+ (define return (void))
+ (define continue (void))
+ (define $current-handler (void))
+ (define g$y (void))
+ (begin
+   (py-print (get-field g$x mf) (get-field g$x ef))
+   (py-print (get-field (get-field g$x mf) ex))
+   (set! g$y (get-field g$x mf))
+   (set-field! g$x mf 5)))

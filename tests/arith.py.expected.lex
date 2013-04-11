@@ -1,0 +1,5 @@
+(LIT 3)
+(PUNCT "+")
+(LIT 5)
+(NEWLINE)
+(ENDMARKER)

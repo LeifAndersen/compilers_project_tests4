@@ -1,0 +1,6 @@
+(program
+ (= (a) 3)
+ (def
+  (b)
+  (suite (= (a) 4) (def (c) (suite (return a))) (expr (indexed c (called))))))
+

@@ -1,0 +1,6 @@
+(program
+ (def (a b) (suite (return b (term b ("*" 2)))))
+ (= (x y) (indexed a (called 3)))
+ (expr (indexed print (called x)))
+ (expr (indexed print (called y))))
+

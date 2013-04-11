@@ -1,0 +1,9 @@
+(program
+ (define break (void))
+ (define return (void))
+ (define continue (void))
+ (define $current-handler (void))
+ (begin
+   ((lambda (t16)
+      (begin (if t16 t16 ((lambda (t17) (begin (if t17 t17 1))) (not #f)))))
+    #t)))

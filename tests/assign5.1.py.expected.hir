@@ -1,0 +1,48 @@
+(program
+ (define d (void))
+ (let ((t16 (tuple 7 8)))
+   (let ((b18 (get-global b)))
+     (let ((i17 42))
+       (cond
+        ((tuple? b18)
+         (tuple-set!
+          b18
+          i17
+          (let ((e20 t16))
+            (let ((i19 0))
+              (cond
+               ((py-list? e20) (py-list-ref e20 i19))
+               ((tuple? e20) (tuple-ref e20 i19))
+               ((dict? e20) (dict-ref e20 i19))
+               (else (error "cannot index object")))))))
+        ((py-list? b18)
+         (py-list-set!
+          b18
+          i17
+          (let ((e22 t16))
+            (let ((i21 0))
+              (cond
+               ((py-list? e22) (py-list-ref e22 i21))
+               ((tuple? e22) (tuple-ref e22 i21))
+               ((dict? e22) (dict-ref e22 i21))
+               (else (error "cannot index object")))))))
+        ((dict? b18)
+         (dict-set!
+          b18
+          i17
+          (let ((e24 t16))
+            (let ((i23 0))
+              (cond
+               ((py-list? e24) (py-list-ref e24 i23))
+               ((tuple? e24) (tuple-ref e24 i23))
+               ((dict? e24) (dict-ref e24 i23))
+               (else (error "cannot index object"))))))))))
+   (set-global!
+    d
+    (let ((e26 t16))
+      (let ((i25 1))
+        (cond
+         ((py-list? e26) (py-list-ref e26 i25))
+         ((tuple? e26) (tuple-ref e26 i25))
+         ((dict? e26) (dict-ref e26 i25))
+         (else (error "cannot index object"))))))))

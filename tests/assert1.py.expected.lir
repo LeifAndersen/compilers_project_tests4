@@ -1,0 +1,14 @@
+(program
+ (define break (void))
+ (define return (void))
+ (define continue (void))
+ (define $current-handler (void))
+ (define g$y (void))
+ (define g$x (void))
+ (begin
+   (set! g$x 3.0)
+   (set! g$y 2)
+   (assert1 (lambda () (> g$x g$y)))
+   (assert1 (lambda () (tuple (> g$x 2) (equal? g$y 2))))
+   (assert2 (lambda () (> g$x 2)) (lambda () "x must be greater than two!"))
+   (py-print (> g$x g$y))))

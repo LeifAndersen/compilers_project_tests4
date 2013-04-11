@@ -1,0 +1,7 @@
+(program
+ (= (x) (list (list (list 5))))
+ (expr
+  (indexed
+   print
+   (called (indexed x (subscript 0) (subscript 0) (subscript 0))))))
+

@@ -1,0 +1,11 @@
+(program
+ (= (a) (list 1 2 3 4))
+ (def
+  (b)
+  (suite
+   (= (j) 0)
+   (for i a (suite ("+=" (j) i)))
+   (expr (indexed print (called j)))))
+ (expr (indexed b (called)))
+ (expr (indexed print (called a))))
+

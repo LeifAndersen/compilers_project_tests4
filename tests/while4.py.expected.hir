@@ -1,0 +1,8 @@
+(program
+ (define x (void))
+ (set-global! x 0)
+ (while
+  (< (get-global x) 3)
+  (let () (set-global! x (+ (get-global x) 3)))
+  (let () (set-global! x 2)))
+ (py-print (get-global x)))

@@ -1,0 +1,2 @@
+(program (= (a b) (tuple 1 2)))
+

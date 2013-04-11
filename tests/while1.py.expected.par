@@ -1,0 +1,6 @@
+(program
+ (= (i) 10)
+ (while
+  (comparison i (">" 0))
+  (suite (expr (indexed print (called i))) ("-=" (i) 1))))
+

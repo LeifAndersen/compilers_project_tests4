@@ -1,0 +1,40 @@
+(program
+ (= (x) (list 1 5 1 43 2 6 2 95 10 0 5 4))
+ (= (y) (list "bob" "bar" "billy"))
+ (def
+  (a)
+  (suite
+   (cond
+    ((comparison 5 ("==" 3)) (suite (pass)))
+    ((comparison 5 ("<" (term 99 ("%" 50))))
+     (suite
+      (for
+       i
+       x
+       (suite
+        (expr (indexed print (called i)))
+        (cond
+         ((comparison (term i ("%" 2)) ("==" 0))
+          (suite
+           (expr
+            (indexed
+             print
+             (called (indexed y (subscript (term i ("%" 2))))))))))))
+      (= (i) 0)
+      (for
+       j
+       x
+       (suite
+        (cond
+         ((comparison (term (indexed x (subscript i)) ("%" 2)) ("==" 0))
+          (suite
+           (expr
+            (indexed
+             print
+             (called
+              (indexed
+               y
+               (subscript (term (indexed x (subscript i)) ("%" 2))))))))))
+        ("+=" (i) 1))))))))
+ (expr (indexed a (called))))
+

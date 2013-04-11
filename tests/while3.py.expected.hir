@@ -1,0 +1,12 @@
+(program
+ (define i (void))
+ (define j (void))
+ (set-global! i 2)
+ (while
+  (> (get-global i) 0)
+  (let ()
+    (set-global! j 2)
+    (set-global! i (- (get-global i) 1))
+    (py-print (get-global i))))
+ (py-print (get-global i))
+ (py-print (get-global j)))
