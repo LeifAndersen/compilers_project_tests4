@@ -88,9 +88,10 @@ tests/%.cdiff: tests/%.cresult
 	diff $(basename $@).cexpected $(basename $@).cresult >> $@
 
 testlir: pylex pyparse pytrans pydesugar
-	for i in tests/*.py.expected.hir; \
-	do printf "%s\n" "Testing LIR: $$i"; \
-	./pydesugar < $$i > $$i.out.lir; \
+	for j in tests/*.py.expected.hir; \
+	do i=tests/`basename $$j .expected.hir`; \
+	printf "%s\n" "Testing LIR: $$i"; \
+	./pydesugar < $$j > $$i.out.lir; \
 	cat lir-header.rkt $$i.expected.lir > $$i.expected.lrkt | \
 	cat lir-header.rkt $$i.out.lir > $$i.out.lrkt; \
 	racket $$i.expected.lrkt > $$i.expected.lresult; \
@@ -99,9 +100,10 @@ testlir: pylex pyparse pytrans pydesugar
 	done
 
 test: answers pylex pyparse pytrans pydesugar pycps
-	for i in tests/*.py.expected.hir; \
-	do printf "%s\n" "Testing CPS: $$i"; \
-	./pydesugar < $$i ./pycps > $$i.out.cps; \
+	for j in tests/*.py.expected.hir; \
+	do i=tests/`basename $$j .expected.hir`; \
+	printf "%s\n" "Testing LIR: $$i"; \
+	./pydesugar < $$j | ./pycps > $$i.out.cps; \
 	cat cps-header.rkt $$i.expected.cps > $$i.expected.crkt | \
 	cat cps-header.rkt $$i.out.cps > $$i.out.crkt; \
 	racket $$i.expected.crkt > $$i.expected.cresult; \
