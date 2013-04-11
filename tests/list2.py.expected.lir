@@ -1,0 +1,133 @@
+(program
+ (define break (void))
+ (define return (void))
+ (define continue (void))
+ (define $current-handler (void))
+ (define g$k (void))
+ (define g$m (void))
+ (define g$x (void))
+ (define g$i (void))
+ (define g$j (void))
+ (begin
+   (set! g$x
+     (py-list* (py-list* 1) (py-list* 2) (py-list* 3) (py-list* 4 5 6)))
+   (call/ec
+    (lambda (break)
+      ((lambda ($seq16 $loop17)
+         (begin
+           (begin
+             (if (set? $seq16)
+               (for-set $seq16 $loop17)
+               (if (tuple? $seq16)
+                 (for-tuple $seq16 $loop17)
+                 (if (py-list? $seq16)
+                   (for-py-list $seq16 $loop17)
+                   (if (dict? $seq16) (for-dict $seq16 $loop17) (void)))))
+             (void))))
+       g$x
+       (lambda (i16)
+         (call/ec
+          (lambda (continue)
+            (begin
+              (set! g$i i16)
+              ((lambda ()
+                 (begin
+                   (call/ec
+                    (lambda (break)
+                      ((lambda ($seq18 $loop19)
+                         (begin
+                           (begin
+                             (if (set? $seq18)
+                               (for-set $seq18 $loop19)
+                               (if (tuple? $seq18)
+                                 (for-tuple $seq18 $loop19)
+                                 (if (py-list? $seq18)
+                                   (for-py-list $seq18 $loop19)
+                                   (if (dict? $seq18)
+                                     (for-dict $seq18 $loop19)
+                                     (void)))))
+                             (void))))
+                       g$i
+                       (lambda (i17)
+                         (call/ec
+                          (lambda (continue)
+                            (begin
+                              (set! g$j i17)
+                              ((lambda ()
+                                 (begin (py-print g$j)))))))))))))))))))))
+   (set! g$i 0)
+   (call/ec
+    (lambda (break)
+      ((lambda ($seq20 $loop21)
+         (begin
+           (begin
+             (if (set? $seq20)
+               (for-set $seq20 $loop21)
+               (if (tuple? $seq20)
+                 (for-tuple $seq20 $loop21)
+                 (if (py-list? $seq20)
+                   (for-py-list $seq20 $loop21)
+                   (if (dict? $seq20) (for-dict $seq20 $loop21) (void)))))
+             (void))))
+       g$x
+       (lambda (i18)
+         (call/ec
+          (lambda (continue)
+            (begin
+              (set! g$k i18)
+              ((lambda ()
+                 (begin
+                   (set! g$j 0)
+                   (call/ec
+                    (lambda (break)
+                      ((lambda ($seq22 $loop23)
+                         (begin
+                           (begin
+                             (if (set? $seq22)
+                               (for-set $seq22 $loop23)
+                               (if (tuple? $seq22)
+                                 (for-tuple $seq22 $loop23)
+                                 (if (py-list? $seq22)
+                                   (for-py-list $seq22 $loop23)
+                                   (if (dict? $seq22)
+                                     (for-dict $seq22 $loop23)
+                                     (void)))))
+                             (void))))
+                       g$k
+                       (lambda (i19)
+                         (call/ec
+                          (lambda (continue)
+                            (begin
+                              (set! g$m i19)
+                              ((lambda ()
+                                 (begin
+                                   (py-print
+                                    ((lambda (e23)
+                                       (begin
+                                         ((lambda (i22)
+                                            (begin
+                                              (if (py-list? e23)
+                                                (py-list-ref e23 i22)
+                                                (if (tuple? e23)
+                                                  (tuple-ref e23 i22)
+                                                  (if (dict? e23)
+                                                    (dict-ref e23 i22)
+                                                    (error
+                                                     "cannot index object"))))))
+                                          g$j)))
+                                     ((lambda (e21)
+                                        (begin
+                                          ((lambda (i20)
+                                             (begin
+                                               (if (py-list? e21)
+                                                 (py-list-ref e21 i20)
+                                                 (if (tuple? e21)
+                                                   (tuple-ref e21 i20)
+                                                   (if (dict? e21)
+                                                     (dict-ref e21 i20)
+                                                     (error
+                                                      "cannot index object"))))))
+                                           g$i)))
+                                      g$x)))
+                                   (set! g$j (+ g$j 1))))))))))))
+                   (set! g$i (+ g$i 1))))))))))))))
