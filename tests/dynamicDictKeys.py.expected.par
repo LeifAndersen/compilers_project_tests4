@@ -1,0 +1,27 @@
+(program
+ (= (identity) (lambda (x) x))
+ (def (plus_one x) (suite (return (arith x ("+" 1)))))
+ (=
+  (a_dict)
+  (dict
+   ((indexed plus_one (called (indexed identity (called 0))))
+    (indexed plus_one (called 0)))
+   ((indexed identity (called "str")) (indexed plus_one (called 1)))
+   (identity (set "a lambda" " as a" " key."))))
+ (=
+  (a_set)
+  (set
+   (indexed identity (called 0))
+   (indexed plus_one (called 0))
+   "set member"
+   (indexed identity (called (indexed plus_one (called 1))))))
+ (= ((indexed a_dict (subscript "new key"))) a_set)
+ (expr (indexed print (called (indexed a_dict (subscript identity)))))
+ (expr
+  (indexed
+   print
+   (called (indexed a_dict (subscript (indexed identity (called "str")))))))
+ (expr (indexed print (called (indexed a_dict (subscript 1)))))
+ (expr (indexed print (called a_set)))
+ (expr (indexed print (called (indexed a_dict (subscript "new key"))))))
+

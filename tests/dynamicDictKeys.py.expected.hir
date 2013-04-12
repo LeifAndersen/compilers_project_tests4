@@ -1,0 +1,62 @@
+(program
+ (define a_set (void))
+ (define a_dict (void))
+ (define plus_one (void))
+ (define identity (void))
+ (set-global! identity (lambda (x) x))
+ (set-global!
+  plus_one
+  (lambda (x) (call/ec (lambda (return) (let () (return (+ x 1)))))))
+ (set-global!
+  a_dict
+  (dict
+   (((get-global plus_one) ((get-global identity) 0))
+    ((get-global plus_one) 0))
+   (((get-global identity) "str") ((get-global plus_one) 1))
+   ((get-global identity) (set "a lambda" " as a" " key."))))
+ (set-global!
+  a_set
+  (set
+   ((get-global identity) 0)
+   ((get-global plus_one) 0)
+   "set member"
+   ((get-global identity) ((get-global plus_one) 1))))
+ (let ((b17 (get-global a_dict)))
+   (let ((i16 "new key"))
+     (cond
+      ((tuple? b17) (tuple-set! b17 i16 (get-global a_set)))
+      ((py-list? b17) (py-list-set! b17 i16 (get-global a_set)))
+      ((dict? b17) (dict-set! b17 i16 (get-global a_set))))))
+ (py-print
+  (let ((e19 (get-global a_dict)))
+    (let ((i18 (get-global identity)))
+      (cond
+       ((py-list? e19) (py-list-ref e19 i18))
+       ((tuple? e19) (tuple-ref e19 i18))
+       ((dict? e19) (dict-ref e19 i18))
+       (else (error "cannot index object"))))))
+ (py-print
+  (let ((e21 (get-global a_dict)))
+    (let ((i20 ((get-global identity) "str")))
+      (cond
+       ((py-list? e21) (py-list-ref e21 i20))
+       ((tuple? e21) (tuple-ref e21 i20))
+       ((dict? e21) (dict-ref e21 i20))
+       (else (error "cannot index object"))))))
+ (py-print
+  (let ((e23 (get-global a_dict)))
+    (let ((i22 1))
+      (cond
+       ((py-list? e23) (py-list-ref e23 i22))
+       ((tuple? e23) (tuple-ref e23 i22))
+       ((dict? e23) (dict-ref e23 i22))
+       (else (error "cannot index object"))))))
+ (py-print (get-global a_set))
+ (py-print
+  (let ((e25 (get-global a_dict)))
+    (let ((i24 "new key"))
+      (cond
+       ((py-list? e25) (py-list-ref e25 i24))
+       ((tuple? e25) (tuple-ref e25 i24))
+       ((dict? e25) (dict-ref e25 i24))
+       (else (error "cannot index object")))))))

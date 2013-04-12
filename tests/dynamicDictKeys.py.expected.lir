@@ -1,0 +1,93 @@
+(program
+ (define break (void))
+ (define return (void))
+ (define continue (void))
+ (define $current-handler (void))
+ (define g$a_set (void))
+ (define g$a_dict (void))
+ (define g$plus_one (void))
+ (define g$identity (void))
+ (begin
+   (set! g$identity (lambda (x) x))
+   (set! g$plus_one
+     (lambda (x)
+       (call/ec (lambda (return) ((lambda () (begin (return (+ x 1)))))))))
+   (set! g$a_dict
+     (dict
+      ((g$plus_one (g$identity 0)) (g$plus_one 0))
+      ((g$identity "str") (g$plus_one 1))
+      (g$identity (set "a lambda" " as a" " key."))))
+   (set! g$a_set
+     (set
+      (g$identity 0)
+      (g$plus_one 0)
+      "set member"
+      (g$identity (g$plus_one 1))))
+   ((lambda (b17)
+      (begin
+        ((lambda (i16)
+           (begin
+             (if (tuple? b17)
+               (tuple-set! b17 i16 g$a_set)
+               (if (py-list? b17)
+                 (py-list-set! b17 i16 g$a_set)
+                 (if (dict? b17) (dict-set! b17 i16 g$a_set) (void))))))
+         "new key")))
+    g$a_dict)
+   (py-print
+    ((lambda (e19)
+       (begin
+         ((lambda (i18)
+            (begin
+              (if (py-list? e19)
+                (py-list-ref e19 i18)
+                (if (tuple? e19)
+                  (tuple-ref e19 i18)
+                  (if (dict? e19)
+                    (dict-ref e19 i18)
+                    (error "cannot index object"))))))
+          g$identity)))
+     g$a_dict))
+   (py-print
+    ((lambda (e21)
+       (begin
+         ((lambda (i20)
+            (begin
+              (if (py-list? e21)
+                (py-list-ref e21 i20)
+                (if (tuple? e21)
+                  (tuple-ref e21 i20)
+                  (if (dict? e21)
+                    (dict-ref e21 i20)
+                    (error "cannot index object"))))))
+          (g$identity "str"))))
+     g$a_dict))
+   (py-print
+    ((lambda (e23)
+       (begin
+         ((lambda (i22)
+            (begin
+              (if (py-list? e23)
+                (py-list-ref e23 i22)
+                (if (tuple? e23)
+                  (tuple-ref e23 i22)
+                  (if (dict? e23)
+                    (dict-ref e23 i22)
+                    (error "cannot index object"))))))
+          1)))
+     g$a_dict))
+   (py-print g$a_set)
+   (py-print
+    ((lambda (e25)
+       (begin
+         ((lambda (i24)
+            (begin
+              (if (py-list? e25)
+                (py-list-ref e25 i24)
+                (if (tuple? e25)
+                  (tuple-ref e25 i24)
+                  (if (dict? e25)
+                    (dict-ref e25 i24)
+                    (error "cannot index object"))))))
+          "new key")))
+     g$a_dict))))

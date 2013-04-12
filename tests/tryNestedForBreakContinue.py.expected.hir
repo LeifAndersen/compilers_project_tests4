@@ -1,0 +1,45 @@
+(program
+ (define nested_loop (void))
+ (set-global!
+  nested_loop
+  (lambda (var)
+    (call/ec
+     (lambda (return)
+       (let ((j (void)) (i (void)))
+         (for-each
+          i16
+          (py-list* 1 2 3 4 5)
+          (begin
+            (set! i i16)
+            (let ()
+              (py-print i)
+              (try
+               (let ()
+                 (for-each
+                  i17
+                  (tuple 7 6 5 4)
+                  (begin
+                    (set! j i17)
+                    (let ()
+                      (py-print "begin inner")
+                      (py-print i)
+                      (py-print j)
+                      (cond
+                       ((and (> i 4) (equal? j 4))
+                        (let () (py-print "raise") (throw "reached 6")))
+                       ((and (< i 2) (> j 5))
+                        (let () (py-print "inner break") (break)))
+                       ((and (let ((cv18 i)) (if (< 2 cv18) (< cv18 4) #f))
+                             (equal? j 4))
+                        (let () (py-print "inner continue") (continue))))
+                      (py-print "end inner"))))
+                 (py-print "j after inner:")
+                 (py-print j)
+                 (cond
+                  ((equal? i 3)
+                   (let () (py-print "outer continue") (continue)))
+                  ((equal? i var) (let () (py-print "outer break") (break))))
+                 (py-print "end outer"))
+               (lambda (ex) (let () (py-print "caught exception"))))))))))))
+ ((get-global nested_loop) (- 1))
+ ((get-global nested_loop) 1))

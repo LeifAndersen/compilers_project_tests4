@@ -1,0 +1,19 @@
+(program
+ (def
+  (check n)
+  (suite
+   (cond ((comparison n (">" 4)) (suite (raise "greater than 4"))))
+   (return True)))
+ (for
+  i
+  (tuple 1 2 3 4 5)
+  (suite
+   (expr (indexed print (called i)))
+   (try
+    (suite (cond ((indexed check (called i)) (suite (break)))))
+    (((except)
+      (suite (expr (indexed print (called "caught exception"))) (continue))))
+    #f
+    #f)))
+ (expr (indexed print (called "break to here"))))
+

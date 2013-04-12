@@ -1,0 +1,106 @@
+(program
+ (define break (void))
+ (define return (void))
+ (define continue (void))
+ (define $current-handler (void))
+ (define g$check (void))
+ (define g$i (void))
+ (begin
+   (set! g$check
+     (lambda (n)
+       (call/ec
+        (lambda (return)
+          ((lambda ()
+             (begin
+               (if (> n 4)
+                 ((lambda () (begin ($current-handler "greater than 4"))))
+                 (void))
+               (return #t))))))))
+   (call/ec
+    (lambda (break)
+      ((lambda ($seq16 $loop17)
+         (begin
+           (begin
+             (if (set? $seq16)
+               (for-set $seq16 $loop17)
+               (if (tuple? $seq16)
+                 (for-tuple $seq16 $loop17)
+                 (if (py-list? $seq16)
+                   (for-py-list $seq16 $loop17)
+                   (if (dict? $seq16) (for-dict $seq16 $loop17) (void)))))
+             (void))))
+       (tuple 1 2 3 4 5)
+       (lambda (i16)
+         (call/ec
+          (lambda (continue)
+            (begin
+              (set! g$i i16)
+              ((lambda ()
+                 (begin
+                   (py-print g$i)
+                   ((lambda ($old-handler)
+                      (begin
+                        ((lambda ($old-return)
+                           (begin
+                             ((lambda ($old-continue)
+                                (begin
+                                  ((lambda ($old-break)
+                                     (begin
+                                       ((lambda (return)
+                                          (begin
+                                            ((lambda (continue)
+                                               (begin
+                                                 ((lambda (break)
+                                                    (begin
+                                                      (call/ec
+                                                       (lambda ($ec19)
+                                                         (begin
+                                                           (set! $current-handler
+                                                             (lambda ($ex18)
+                                                               (begin
+                                                                 (set! $current-handler
+                                                                   $old-handler)
+                                                                 ($ec19
+                                                                  ((lambda (ex)
+                                                                     ((lambda ()
+                                                                        (begin
+                                                                          (py-print
+                                                                           "caught exception")
+                                                                          (continue
+                                                                           (void))))))
+                                                                   $ex18)))))
+                                                           ((lambda (rv)
+                                                              (begin
+                                                                (begin
+                                                                  (set! $current-handler
+                                                                    $old-handler)
+                                                                  rv)))
+                                                            ((lambda ()
+                                                               (begin
+                                                                 (if (g$check
+                                                                      g$i)
+                                                                   ((lambda ()
+                                                                      (begin
+                                                                        (break
+                                                                         (void)))))
+                                                                   (void)))))))))))
+                                                  (lambda ()
+                                                    (begin
+                                                      (set! $current-handler
+                                                        $old-handler)
+                                                      ($old-break (void)))))))
+                                             (lambda ()
+                                               (begin
+                                                 (set! $current-handler
+                                                   $old-handler)
+                                                 ($old-continue (void)))))))
+                                        (lambda (rv)
+                                          (begin
+                                            (set! $current-handler
+                                              $old-handler)
+                                            (return rv))))))
+                                   break)))
+                              continue)))
+                         return)))
+                    $current-handler)))))))))))
+   (py-print "break to here")))

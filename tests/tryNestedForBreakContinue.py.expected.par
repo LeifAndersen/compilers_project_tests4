@@ -1,0 +1,50 @@
+(program
+ (def
+  (nested_loop var)
+  (suite
+   (for
+    i
+    (list 1 2 3 4 5)
+    (suite
+     (expr (indexed print (called i)))
+     (try
+      (suite
+       (for
+        j
+        (tuple 7 6 5 4)
+        (suite
+         (begin
+           (expr (indexed print (called "begin inner")))
+           (expr (indexed print (called i)))
+           (expr (indexed print (called j))))
+         (cond
+          ((and (comparison i (">" 4)) (comparison j ("==" 4)))
+           (suite
+            (begin
+              (expr (indexed print (called "raise")))
+              (raise "reached 6"))))
+          ((and (comparison i ("<" 2)) (comparison j (">" 5)))
+           (suite
+            (begin (expr (indexed print (called "inner break"))) (break))))
+          ((and (comparison 2 ("<" i) ("<" 4)) (comparison j ("==" 4)))
+           (suite
+            (begin
+              (expr (indexed print (called "inner continue")))
+              (continue)))))
+         (expr (indexed print (called "end inner")))))
+       (expr (indexed print (called "j after inner:")))
+       (expr (indexed print (called j)))
+       (cond
+        ((comparison i ("==" 3))
+         (suite
+          (begin (expr (indexed print (called "outer continue"))) (continue))))
+        ((comparison i ("==" var))
+         (suite
+          (begin (expr (indexed print (called "outer break"))) (break)))))
+       (expr (indexed print (called "end outer"))))
+      (((except) (suite (expr (indexed print (called "caught exception"))))))
+      #f
+      #f)))))
+ (expr (indexed nested_loop (called ("-" 1))))
+ (expr (indexed nested_loop (called 1))))
+

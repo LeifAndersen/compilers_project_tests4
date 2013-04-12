@@ -1,0 +1,22 @@
+(program
+ (define check (void))
+ (define i (void))
+ (set-global!
+  check
+  (lambda (n)
+    (call/ec
+     (lambda (return)
+       (let ()
+         (cond ((> n 4) (let () (throw "greater than 4"))))
+         (return #t))))))
+ (for-each
+  i16
+  (tuple 1 2 3 4 5)
+  (begin
+    (set-global! i i16)
+    (let ()
+      (py-print (get-global i))
+      (try
+       (let () (cond (((get-global check) (get-global i)) (let () (break)))))
+       (lambda (ex) (let () (py-print "caught exception") (continue)))))))
+ (py-print "break to here"))
